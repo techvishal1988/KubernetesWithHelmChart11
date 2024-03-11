@@ -28,7 +28,7 @@ jobs:
 
     - name: Build, tag, and push docker image to Amazon ECR
       run: |   
-        cd gitops-application-sample-master
+        cd WebApplication1
         ls
         docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/abc:latest-${{ github.sha }} .
         docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/abc:latest-${{ github.sha }}
@@ -37,7 +37,7 @@ jobs:
       run: echo "::set-output name=tag::${{ github.sha }}"
     - name: Update deployment.yaml
       run: |
-        cd gitops-application-sample-master
+        cd WebApplication1/weatherforecast
         ls
         pwd
         sed  -i '/abc/ s/:latest-.*$/:latest-${{ steps.extract-tag.outputs.tag }}/' deployment.yaml 
