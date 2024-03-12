@@ -55,7 +55,6 @@ jobs:
     - name: Deploy Helm chart to EKS
       run: |
         helm upgrade --install ${RELEASE_NAME} ./path/to/helm/chart --namespace ${NAMESPACE} --set image.repository=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_NAME} --set image.tag=${GITHUB_SHA} --set other_values=...
-
     - name: Clean up
       run: |
         aws ecr batch-delete-image --repository-name ${IMAGE_NAME} --image-ids imageTag=${GITHUB_SHA}
