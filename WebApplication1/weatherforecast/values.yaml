@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: abc
+  repository: 011268468426.dkr.ecr.us-west-2.amazonaws.com/abc
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest-22cf5dfd6a2f367282c4ea400e603bcfee52dcc2
