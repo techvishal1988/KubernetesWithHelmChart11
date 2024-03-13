@@ -8,7 +8,7 @@ image:
   repository: abc
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "main"
+  tag: latest-22cf5dfd6a2f367282c4ea400e603bcfee52dcc2
 
 imagePullSecrets: []
 nameOverride: ""
