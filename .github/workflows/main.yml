@@ -38,7 +38,7 @@ jobs:
       run: aws eks update-kubeconfig --name demo-eks
     - name: Deploy Helm chart to EKS
       run: |
-        helm upgrade --install test1234 ./WebApplication1/weatherforecast --namespace dev --set image.repository=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/abc --set image.tag=${GITHUB_SHA} 
+        helm upgrade --install test1234 ./WebApplication1/weatherforecast --namespace test --set image.repository --set image.tag=latest 
     #- name: Clean up
       #run: |
        # aws ecr batch-delete-image --repository-name abc --image-ids imageTag=${GITHUB_SHA}
