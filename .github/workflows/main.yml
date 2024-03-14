@@ -28,8 +28,8 @@ jobs:
       run: |   
         cd WebApplication1
         ls
-        docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/abc:latest-${{ github.sha }} .
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/abc:latest-${{ github.sha }}
+        docker build -t abc:latest.
+        docker push abc:latest
     - name: Update kube config
       run: aws eks update-kubeconfig --name demo-eks
     - name: Deploy Helm chart to EKS
